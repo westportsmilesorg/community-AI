@@ -1,0 +1,6 @@
+streamlit
+openai
+pillow
+# fastapi
+# uvicorn
+# python-multipart
