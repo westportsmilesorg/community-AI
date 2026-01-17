@@ -112,37 +112,37 @@ They must be kind, nice, and easy for kids to understand.
     return response.choices[0].message.content.strip()
 
 # ================= LANDING PAGE =================
-# if st.session_state.page == "landing":
-####################################################################
 if st.session_state.page == "landing":
+# ####################################################################
+# if st.session_state.page == "landing":
 
-    if not st.session_state.logged_in:
-        # 🔐 TEMPORARY LOGIN GATE
-        st.image("westport.png", use_container_width=True)
-        st.title("Westport Smiles 😊")
-        st.subheader("A Kindness Project : See an Object, Spark a Connection! ")
-        st.markdown("""
-    Join us—Lisette, Leonie, and Professor Juju—as we use AI to fight the loneliness epidemic by turning everyday objects into sparks for human connection.
-                Our mission is to help everyone, from kids to seniors, break down barriers and "Be Best" through tiny, visible acts of kindness that foster a healthier community.
-                We invite you to explore our project, where we merge technology with real-world interaction to ensure no one has to feel like they are on a "lonely island" anymore.
-    """)
-        st.subheader("Please login to continue")
+#     if not st.session_state.logged_in:
+#         # 🔐 TEMPORARY LOGIN GATE
+#         st.image("westport.png", use_container_width=True)
+#         st.title("Westport Smiles 😊")
+#         st.subheader("A Kindness Project : See an Object, Spark a Connection! ")
+#         st.markdown("""
+#     Join us—Lisette, Leonie, and Professor Juju—as we use AI to fight the loneliness epidemic by turning everyday objects into sparks for human connection.
+#                 Our mission is to help everyone, from kids to seniors, break down barriers and "Be Best" through tiny, visible acts of kindness that foster a healthier community.
+#                 We invite you to explore our project, where we merge technology with real-world interaction to ensure no one has to feel like they are on a "lonely island" anymore.
+#     """)
+#         st.subheader("Please login to continue")
 
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
+#         username = st.text_input("Username")
+#         password = st.text_input("Password", type="password")
 
-        users = load_users()
+#         users = load_users()
 
-        if st.button("🔐 Login"):
-            if username in users and users[username] == password:
-                st.session_state.logged_in = True
-                st.session_state.username = username
-                st.success("Login successful 🎉")
-                st.rerun()
-            else:
-                st.error("Invalid username or password")
-        show_footer()
-        st.stop()   # ⛔ stops here until login
+#         if st.button("🔐 Login"):
+#             if username in users and users[username] == password:
+#                 st.session_state.logged_in = True
+#                 st.session_state.username = username
+#                 st.success("Login successful 🎉")
+#                 st.rerun()
+#             else:
+#                 st.error("Invalid username or password")
+#         show_footer()
+#         st.stop()   # ⛔ stops here until login
 
     ################################################################
 
@@ -227,43 +227,45 @@ if st.session_state.page == "change_password":
 if st.session_state.page == "app":
 
     # ---------- LOGIN ----------
-    if not st.session_state.logged_in:
-        st.image("westport.png", use_container_width=True)
-        st.title("Welcome to Westport Smiles 😊")
-        st.subheader("Please login to continue")
+    # if not st.session_state.logged_in:
+    #     st.image("westport.png", use_container_width=True)
+    #     st.title("Welcome to Westport Smiles 😊")
+    #     st.subheader("Please login to continue")
 
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
+    #     username = st.text_input("Username")
+    #     password = st.text_input("Password", type="password")
 
-        users = load_users()
+    #     users = load_users()
 
-        if st.button("Login"):
-            if username in users and users[username] == password:
-                st.session_state.logged_in = True
-                st.session_state.username = username
-                st.success("Login successful 🎉")
-                st.rerun()
-            else:
-                st.error("Invalid username or password")
+    #     if st.button("Login"):
+    #         if username in users and users[username] == password:
+    #             st.session_state.logged_in = True
+    #             st.session_state.username = username
+    #             st.success("Login successful 🎉")
+    #             st.rerun()
+    #         else:
+    #             st.error("Invalid username or password")
 
-        if st.button("⬅ Back to Home"):
-            st.session_state.page = "landing"
-            st.rerun()
-        show_footer()
-        st.stop()
+    #     if st.button("⬅ Back to Home"):
+    #         st.session_state.page = "landing"
+    #         st.rerun()
+    #     show_footer()
+    #     st.stop()
 
     # ---------- SIDEBAR ----------
-    st.sidebar.write(f"👋 Hello, {st.session_state.username}")
+    #st.sidebar.write(f"👋 Hello, {st.session_state.username}")
+    st.sidebar.write("👋 Welcome!")
+
     
     # if st.sidebar.button("Change Password"):
     #     st.session_state.page = "change_password"
     #     st.rerun()
 
-    if st.sidebar.button("Logout"):
-        st.session_state.logged_in = False
-        st.session_state.username = ""
-        st.session_state.page = "landing"
-        st.rerun()
+    # if st.sidebar.button("Logout"):
+    #     st.session_state.logged_in = False
+    #     st.session_state.username = ""
+    #     st.session_state.page = "landing"
+    #     st.rerun()
 
 
     # ---------- APP HEADER ----------
@@ -424,7 +426,6 @@ if st.session_state.page == "Responsble AI":
     if st.button("⬅ Back to Home"):
         st.session_state.page = "landing"
         st.rerun()
-        
+
     show_footer()    
     st.stop()
-
