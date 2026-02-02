@@ -187,8 +187,8 @@ if st.session_state.page == "landing":
             st.rerun()
 
     with col3:
-        if st.button("📚 Responsble AI"):
-            st.session_state.page = "Responsble AI"
+        if st.button("📚 Responsible AI"):
+            st.session_state.page = "Responsible AI"
             st.rerun()
     show_footer()
     st.stop()
@@ -370,7 +370,7 @@ if st.session_state.page == "animated_video":
 
 
 # ================= RESOURCES PAGE =================
-if st.session_state.page == "Responsble AI":
+if st.session_state.page == "Responsible AI":
     st.title("📚 Professor Juju's AI resources")
 
     st.markdown("""
@@ -429,3 +429,4 @@ if st.session_state.page == "Responsble AI":
 
     show_footer()    
     st.stop()
+
