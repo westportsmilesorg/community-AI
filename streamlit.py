@@ -187,13 +187,78 @@ if st.session_state.page == "change_password":
     show_footer()
     st.stop()
 # ================= APP PAGE =================
+# if st.session_state.page == "app":
+
+#     # ---------- SIDEBAR ----------
+#     #st.sidebar.write(f"👋 Hello, {st.session_state.username}")
+#     st.sidebar.write("👋 Welcome!")
+
+#     # ---------- APP HEADER ----------
+#     col_logo, col_title = st.columns([1, 5])
+
+#     with col_logo:
+#         st.image("kindness_logo.png", width=80)
+
+#     with col_title:
+#         st.markdown("## Westport Smiles 😊")
+
+#     st.info(random.choice([
+#         "Say I love you to a loved one.",
+#         "Smile at a stranger.",
+#         "Give a friend a compliment.",
+#         "Approach things with a positive attitude."
+#     ]))
+
+#     st.markdown("Upload or take a photo of an object")
+
+#     mode = st.radio("Choose image source", ["Upload", "Camera"])
+
+#     image = None
+
+#     if mode == "Upload":
+#         uploaded = st.file_uploader("Upload image", type=["jpg", "png", "jpeg"])
+#         if uploaded:
+#             image = Image.open(uploaded)
+
+#     else:
+#         cam = st.camera_input("Take a photo")
+#         if cam:
+#             image = Image.open(cam)
+
+#     if image:
+#         st.image(image, caption="Your Image", use_container_width=True)
+
+#         if st.button("Kindness Starts Here"):
+#             with st.spinner("Thinking kindly..."):
+#                 obj = detect_object(image)
+#                 ideas = kindness_ideas(obj)
+
+#             st.subheader(f"🧠 Object: {obj}")
+#             st.subheader("🌟 Kindness Ideas")
+
+#             for idea in ideas.split("\n"):
+#                 if idea.strip():
+#                     st.write("•", idea)
+
+#     if st.button("⬅ Back to Home"):
+#         st.session_state.page = "landing"
+#         st.rerun()
+#     show_footer()    
+#     st.stop()
+# ================= APP PAGE =================
 if st.session_state.page == "app":
 
+    # ---------- SESSION STATE INIT ----------
+    if "image" not in st.session_state:
+        st.session_state.image = None
+
+    if "input_source" not in st.session_state:
+        st.session_state.input_source = None  # "upload" or "camera"
+
     # ---------- SIDEBAR ----------
-    #st.sidebar.write(f"👋 Hello, {st.session_state.username}")
     st.sidebar.write("👋 Welcome!")
 
-    # ---------- APP HEADER ----------
+    # ---------- HEADER ----------
     col_logo, col_title = st.columns([1, 5])
 
     with col_logo:
@@ -211,26 +276,33 @@ if st.session_state.page == "app":
 
     st.markdown("Upload or take a photo of an object")
 
+    # ---------- INPUT MODE ----------
     mode = st.radio("Choose image source", ["Upload", "Camera"])
 
-    image = None
-
+    # ---------- IMAGE INPUT ----------
     if mode == "Upload":
         uploaded = st.file_uploader("Upload image", type=["jpg", "png", "jpeg"])
+
         if uploaded:
-            image = Image.open(uploaded)
+            st.session_state.image = Image.open(uploaded)
+            st.session_state.input_source = "upload"
+
+            # ✅ Only show image manually for upload
+            st.image(st.session_state.image, caption="Your Image", use_container_width=True)
 
     else:
         cam = st.camera_input("Take a photo")
+
         if cam:
-            image = Image.open(cam)
+            st.session_state.image = Image.open(cam)
+            st.session_state.input_source = "camera"
+            # ❌ Do NOT call st.image() → camera already shows preview
 
-    if image:
-        st.image(image, caption="Your Image", use_container_width=True)
-
+    # ---------- PROCESS ----------
+    if st.session_state.image is not None:
         if st.button("Kindness Starts Here"):
             with st.spinner("Thinking kindly..."):
-                obj = detect_object(image)
+                obj = detect_object(st.session_state.image)
                 ideas = kindness_ideas(obj)
 
             st.subheader(f"🧠 Object: {obj}")
@@ -240,12 +312,24 @@ if st.session_state.page == "app":
                 if idea.strip():
                     st.write("•", idea)
 
+            # ✅ Reset after processing
+            st.session_state.image = None
+            st.session_state.input_source = None
+
+    # ---------- CLEAR BUTTON ----------
+    if st.session_state.image is not None:
+        if st.button("🗑 Clear Image"):
+            st.session_state.image = None
+            st.session_state.input_source = None
+            st.rerun()
+
+    # ---------- NAVIGATION ----------
     if st.button("⬅ Back to Home"):
         st.session_state.page = "landing"
         st.rerun()
-    show_footer()    
-    st.stop()
-    
+
+    show_footer()
+    st.stop()    
 
 # ================= VIDEO PAGE =================
 
