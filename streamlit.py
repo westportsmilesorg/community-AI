@@ -116,7 +116,7 @@ if st.session_state.page == "landing":
 
     st.markdown("""
     Join us—Lisette, Leonie, and Professor Juju—as we use AI to fight the loneliness epidemic by turning everyday objects into sparks for human connection. 
-                        Our mission is to help everyone, from kids to seniors, break down barriers and "Be Best" through tiny, visible acts of kindness that foster a healthier community.
+                        Our mission is to help everyone, from kids to seniors, break down barriers and "Be Best" through small acts of kindness that foster a healthier community.
                 We invite you to explore our project, where we merge technology with real-world interaction to ensure no one has to feel like they are on a "lonely island" anymore.
     """)
 
