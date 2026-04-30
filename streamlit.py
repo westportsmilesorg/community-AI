@@ -27,6 +27,7 @@ def show_footer():
         color: #0066cc;
         text-decoration: none;
         font-weight: 500;
+        margin: 0 6px;
     }
     .footer a:hover {
         text-decoration: underline;
@@ -35,6 +36,7 @@ def show_footer():
 
     <div class="footer">
         © 2026 Westport Smiles. All rights reserved |
+        <a href="?page=legal">Legal Disclaimer</a> |
         Contact us:
         <a href="mailto:westportsmiles.org@gmail.com">
             westportsmiles.org@gmail.com
@@ -47,7 +49,12 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 # ================== PAGE STATE ==================
 if "page" not in st.session_state:
     st.session_state.page = "landing"
+    
+query_params = st.query_params
 
+if "page" in query_params and st.session_state.page == "landing":
+    st.session_state.page = query_params["page"]
+    
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.username = ""
@@ -106,7 +113,59 @@ They must be kind, nice, and easy for kids to understand.
     )
 
     return response.choices[0].message.content.strip()
+# ================= legal page =================
+if st.session_state.page == "legal":
+    st.title("Legal Disclaimer & Technology Disclosure")
 
+    st.markdown("""
+
+### 🔬 Beta Platform & AI Usage
+This website is currently in **Beta** and serves as an experimental platform for our mission.  
+To help us build bridges and generate smiles more efficiently, we utilize various third-party artificial intelligence and web technologies, including tools provided by **OpenAI, Google, and Streamlit**.
+
+---
+
+### 🔍 Transparency & Independent Policy
+
+#### 🧭 Independent Policies
+We are an independent entity. Our organizational policies, mission, and content standards are **distinct** from those of our technology providers (including OpenAI, Google, and Streamlit).  
+Your interaction with our site is governed by **our own terms**, not the terms of our software vendors.
+
+#### ⚠️ Accuracy & Human Oversight
+Although we use AI to assist in our work, our team strives to oversee and curate the content provided.  
+AI-generated content can occasionally be **incorrect or incomplete**. Please verify any critical information independently before relying upon it.
+
+#### 📘 Nature of Information
+Content on this site is provided for **general informational purposes only** and does **not** constitute professional, legal, medical, or financial advice.
+
+#### ⚖️ Limitation of Liability
+By using this site, you acknowledge that you are using these tools at your own discretion and risk.  
+**Westport Smiles and its affiliates are not liable** for any damages or losses resulting from your reliance on the information or services provided here.
+
+---
+
+### 💙 Our Commitment
+We are using code to build bridges and spread positivity.  
+We appreciate your patience and feedback as we continue to test and refine this technology to better serve our community.
+
+---
+
+### 🔗 Learn More
+For more information on the platforms that power our development, you may review:
+
+- OpenAI Usage Policies  
+- Google AI Principles  
+- Streamlit Terms of Service  
+
+""")
+
+    if st.button("⬅ Back to Home"):
+        st.query_params.clear() 
+        st.session_state.page = "landing"
+        st.rerun()
+
+    show_footer()
+    st.stop()
 # ================= LANDING PAGE =================
 if st.session_state.page == "landing":
     st.image("westport.png", use_container_width=True)
@@ -137,7 +196,7 @@ if st.session_state.page == "landing":
 
     st.markdown("### Explore")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         if st.button("🎥 AI App Demo"):
@@ -153,6 +212,12 @@ if st.session_state.page == "landing":
         if st.button("📚 Responsible AI"):
             st.session_state.page = "Responsible AI"
             st.rerun()
+            
+    with col4:
+        if st.button("📰 In the news"):
+            st.session_state.page = "news"
+            st.rerun()
+            
     show_footer()
     st.stop()
     # ================= CHANGE PASSWORD PAGE =================
@@ -437,5 +502,65 @@ if st.session_state.page == "Responsible AI":
         st.rerun()
 
     show_footer()    
+    st.stop()
+# ================= NEWS PAGE =================
+if st.session_state.page == "news":
+    st.title("📰 Westport Smiles – In the News")
+
+    st.markdown("""
+### 💌 A Message from the Team
+
+Dear Friends and Family,
+
+I am writing to share some wonderful news and a bit of joy with you all.  
+My daughters, **Lisette and Leonie Kalra**, were recently named the **Winners of the Presidential AI Challenge as the CT State Champions**.
+
+They have built a live platform called **Westport Smiles**, which uses AI to help people find simple ways to be kind to their neighbors.  
+They truly believe that these small acts of kindness can spark connections and help heal the loneliness epidemic.
+
+Their journey has already sparked a lot of hope in our community, and the press has been following their progress closely.
+
+---
+
+### 📰 Media Coverage
+
+- **CT Insider Article**  
+  https://www.ctinsider.com/westport/article/westport-smiles-app-loneliness-connections-22218628.php  
+
+- **News 12 Feature**  
+  https://news12.com/11-year-old-westport-twins-create-ai-website-to-combat-loneliness-epidemic-help-spread-kindness  
+
+- **Westport Journal Article**  
+  https://westportjournal.com/community/westports-kalra-twins-advance-in-ai-challenge-with-kindness-app/  
+
+
+- **Melissa in the Morning**  
+  https://audioboom.com/posts/8895942-melissa-in-the-morning-westport-smiles?fbclid=IwZnRzaARcwIZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe6xwe9OSyRDEnlVGRZK1JsTQnD-wFLWJyPuCHJbeNqf3tvMwCwQIhryZOopY_aem_Zb4-Q-6C1-WT461JzMnsiA              
+
+### 🌐 Explore the Project
+
+- **Live Platform**  
+  https://westportsmiles.org  
+
+- **Upcoming Initiative – America Smiles (501(c)(3))**  
+  https://americasmiles.org  
+
+---
+
+### ❤️ Proud Moment
+
+We are so proud of their hard work and the positive impact they are making.
+
+**Best regards,**  
+*Aashish Kalra*
+
+""")
+
+
+    if st.button("⬅ Back to Home"):
+        st.session_state.page = "landing"
+        st.rerun()
+
+    show_footer()
     st.stop()
 
