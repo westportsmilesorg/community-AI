@@ -553,7 +553,7 @@ Their project reflects innovation, compassion, and a strong commitment to using 
 Lisette and Leonie, known as the **"Pink Fluffy Unicorns"**, also earned a **Silver Medal** at the prestigious **North American School Scrabble Championship** held in Washington, D.C.  
 
 🔗 **Learn more about their achievement:**
-  please visit the official Championship Standings and read up on the history of the events.  
+  Please visit the official Championship Standings and read up on the history of the events.  
 - https://www.scrabblechampionship.com/standings  
 - https://en.wikipedia.org/wiki/North_American_School_Scrabble_Championship
 - https://www.yahoo.com/lifestyle/articles/westport-twin-sisters-create-app-100000010.html  
