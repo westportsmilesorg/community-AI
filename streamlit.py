@@ -508,19 +508,7 @@ if st.session_state.page == "news":
     st.title("📰 Westport Smiles – In the News")
 
     st.markdown("""
-### 💌 A Message from the Team
 
-Dear Friends and Family,
-
-I am writing to share some wonderful news and a bit of joy with you all.  
-My daughters, **Lisette and Leonie Kalra**, were recently named the **Winners of the Presidential AI Challenge as the CT State Champions**.
-
-They have built a live platform called **Westport Smiles**, which uses AI to help people find simple ways to be kind to their neighbors.  
-They truly believe that these small acts of kindness can spark connections and help heal the loneliness epidemic.
-
-Their journey has already sparked a lot of hope in our community, and the press has been following their progress closely.
-
----
 
 ### 📰 Media Coverage
 
@@ -533,9 +521,15 @@ Their journey has already sparked a lot of hope in our community, and the press 
 - **Westport Journal Article**  
   https://westportjournal.com/community/westports-kalra-twins-advance-in-ai-challenge-with-kindness-app/  
 
-
 - **Melissa in the Morning**  
-  https://audioboom.com/posts/8895942-melissa-in-the-morning-westport-smiles?fbclid=IwZnRzaARcwIZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe6xwe9OSyRDEnlVGRZK1JsTQnD-wFLWJyPuCHJbeNqf3tvMwCwQIhryZOopY_aem_Zb4-Q-6C1-WT461JzMnsiA              
+  https://audioboom.com/posts/8895942-melissa-in-the-morning-westport-smiles?fbclid=IwZnRzaARcwIZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe6xwe9OSyRDEnlVGRZK1JsTQnD-wFLWJyPuCHJbeNqf3tvMwCwQIhryZOopY_aem_Zb4-Q-6C1-WT461JzMnsiA
+
+- **2026 Predential AI state champions**  
+  https://orise.orau.gov/ai-challenge/winners/2026/state.html
+                
+- **Congratulations to 2026 NASSC Winners**  
+  https://www.scrabblechampionship.com/standings
+                
 
 ### 🌐 Explore the Project
 
@@ -549,11 +543,25 @@ Their journey has already sparked a lot of hope in our community, and the press 
 
 ### ❤️ Proud Moment
 
-We are so proud of their hard work and the positive impact they are making.
+We are incredibly proud of the hard work, creativity, and impact Lisette and Leonie are making in their community.
 
-**Best regards,**  
-*Aashish Kalra*
+🏆 **Presidential AI Challenge Achievement**  
+Lisette and Leonie proudly represented **Connecticut** and secured **1st place in the Middle School Technical Division** of the Presidential AI Challenge.  
+Their project reflects innovation, compassion, and a strong commitment to using technology for good.
 
+🎉 **National Scrabble Championship Success**  
+Lisette and Leonie, known as the **"Pink Fluffy Unicorns"**, also earned a **Silver Medal** at the prestigious **North American School Scrabble Championship** held in Washington, D.C.  
+
+🔗 **Learn more about their achievement:**
+  please visit the official Championship Standings and read up on the history of the events.  
+- https://www.scrabblechampionship.com/standings  
+- https://en.wikipedia.org/wiki/North_American_School_Scrabble_Championship
+- https://www.yahoo.com/lifestyle/articles/westport-twin-sisters-create-app-100000010.html  
+- https://www.msn.com/en-us/lifestyle/parenting/westport-twin-sisters-create-app-that-uses-ai-to-create-ideas-on-how-to-connect-with-others/ar-AA21y7BV
+
+---
+
+✨ *Please join us in celebrating these amazing milestones and the positive difference they are making!*
 """)
 
 
