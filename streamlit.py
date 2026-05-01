@@ -318,7 +318,7 @@ if st.session_state.page == "change_password":
 # Donation Page
 if st.session_state.page == "donate":
     st.title("Donate to our cause")
-    st.write("If you would like to support our app, head to givebutter.com!")
+    st.write("If you would like to support America Smiles Inc, head to givebutter.com!")
     
     st.write("https://givebutter.com/america-smiles-westport-dbnjrp")    
     if st.button("Back"):
