@@ -196,7 +196,7 @@ if st.session_state.page == "landing":
 
     st.markdown("### Explore")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
         if st.button("🎥 AI App Demo"):
@@ -216,6 +216,10 @@ if st.session_state.page == "landing":
     with col4:
         if st.button("📰 In the news"):
             st.session_state.page = "news"
+            st.rerun()
+    with col5:
+        if st.button("Donate"):
+            st.session_state.page = "donate"
             st.rerun()
             
     show_footer()
@@ -310,6 +314,22 @@ if st.session_state.page == "change_password":
 #         st.rerun()
 #     show_footer()    
 #     st.stop()
+
+# Donation Page
+if st.session_state.page == "donate":
+    st.title("Donate to our cause")
+    st.write("If you are moved by our cause and want to make the world a kinder place, you can support our app!!")
+
+    st.markdown("""
+    <script
+  async
+  src="https://widgets.givebutter.com/latest.umd.cjs?acct=kCiVcbiXCAaH0k5u&p=other"
+></script>
+    """, unsafe_allow_html = True)
+    
+    if st.button("Back"):
+        st.session_state.page = "landing"
+
 # ================= APP PAGE =================
 if st.session_state.page == "app":
 
