@@ -318,15 +318,9 @@ if st.session_state.page == "change_password":
 # Donation Page
 if st.session_state.page == "donate":
     st.title("Donate to our cause")
-    st.write("If you are moved by our cause and want to make the world a kinder place, you can support our app!!")
-
-    st.markdown("""
-    <script
-  async
-  src="https://widgets.givebutter.com/latest.umd.cjs?acct=kCiVcbiXCAaH0k5u&p=other"
-></script>
-    """, unsafe_allow_html = True)
+    st.write("If you would like to support our app, head to givebutter.com!")
     
+    st.write("https://givebutter.com/america-smiles-westport-dbnjrp")    
     if st.button("Back"):
         st.session_state.page = "landing"
 
