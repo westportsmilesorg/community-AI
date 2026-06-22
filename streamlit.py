@@ -581,6 +581,10 @@ if "page" not in st.session_state:
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.username = ""
+# ================== URL QUERY PARAMETER SYNC ==================
+# Sync URL query parameters with session state
+if "page" in st.query_params:
+    st.session_state.page = st.query_params["page"]
 
 # ================== USERS ==================
 USERS_FILE = "users.json"
